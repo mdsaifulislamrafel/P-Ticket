@@ -1,11 +1,4 @@
-
-
-
-let available = 40;
-let sitCount = 0;
-const ticketPrice = 550;
-let discount = 0;
-
+const nextBtn = document.getElementById('next-btn');
 const sitButtons = document.querySelectorAll('#sit-button');
 
 for (const button of sitButtons) {
@@ -94,12 +87,14 @@ for (const button of sitButtons) {
                 const codeBtn = document.getElementById('code-btn');
                 codeBtn.classList.add('hidden');
             });
+        }
+
+        // Enable nextBtn if no seat selected
+        if (sitCount === 0) {
+            nextBtn.setAttribute('disabled', true);
         } else if (sitCount >= 1 && sitCount <= 3) {
             nextBtn.removeAttribute('disabled');
         }
-
-
-
 
         nextBtn.addEventListener('click', function () {
             const numberField = document.getElementById('number-field');
@@ -109,13 +104,10 @@ for (const button of sitButtons) {
             }
         });
 
-
     });
 }
 
-
 // number verify
-
 const numberField = document.getElementById('number-field');
 numberField.addEventListener('input', function (e) {
     const number = e.target.value;
@@ -126,53 +118,4 @@ numberField.addEventListener('input', function (e) {
         nextBtn.setAttribute('disabled', true);
         numberField.value = '';
     }
-
 });
-
-// next btn 
-
-// const nextBtn = document.getElementById('next-btn');
-// nextBtn.addEventListener('click', function () {
-//     const numberField = document.getElementById('number-field');
-//     if (numberField.value.trim() === '') {
-//         numberField.focus();
-//         alert("Please enter a valid number in the number field.");
-//     } else {
-//         const congratulation = document.getElementById('congratulation');
-//         congratulation.classList.remove('hidden');
-//     }
-// });
-
-const nextBtn = document.getElementById('next-btn');
-nextBtn.addEventListener('click', function () {
-    const sitBooking = parseInt(document.getElementById('sit-booking').innerText);
-    if (sitBooking === 0) {
-        alert("Please select a ticket before proceeding.");
-    } else {
-        const numberField = document.getElementById('number-field');
-        if (numberField.value.trim() === '') {
-            numberField.focus();
-            alert("Please enter a valid number in the number field.");
-            numberField.value = '';
-        } else {
-            const congratulation = document.getElementById('congratulation');
-            congratulation.classList.remove('hidden');
-        }
-    }
-});
-
-
-
-
-
-
-// congratulation system
-
-function Continue() {
-    const congratulation = document.getElementById('congratulation');
-    congratulation.classList.add('hidden');
-
-
-    const numberField = document.getElementById('number-field')
-    numberField.value = '';
-}  
