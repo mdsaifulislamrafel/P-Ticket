@@ -93,7 +93,9 @@ for (const button of sitButtons) {
                 const codeBtn = document.getElementById('code-btn');
                 codeBtn.classList.add('hidden');
             });
-        } else if (sitCount >= 1 && sitCount <= 3) {
+        }
+
+        if (sitCount >= 1 && sitCount <= 3) {
             nextBtn.removeAttribute('disabled');
         }
 
