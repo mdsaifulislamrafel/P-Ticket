@@ -124,26 +124,24 @@ numberField.addEventListener('input', function (e) {
         numberField.value = '';
     }
 
+    nextBtn.addEventListener('click', function () {
+        const sitBooking = parseInt(document.getElementById('sit-booking').innerText);
+        if (sitBooking === 0) {
+            alert("Please select a ticket before proceeding.");
+        } else {
+            const numberField = document.getElementById('number-field');
+            if (numberField.value.trim() === '') {
+                numberField.focus();
+                alert("Please enter a valid number in the number field.");
+            } else {
+                const congratulation = document.getElementById('congratulation');
+                congratulation.classList.remove('hidden');
+            }
+        }
+    });
+
 });
 
-// next btn 
-const nextBtn = document.getElementById('next-btn');
-nextBtn.addEventListener('click', function () {
-    const sitBooking = parseInt(document.getElementById('sit-booking').innerText);
-    if (sitBooking === 0) {
-        alert("Please select a ticket before proceeding.");
-    } else {
-        const numberField = document.getElementById('number-field');
-        if (numberField.value.trim() === '') {
-            numberField.focus();
-            alert("Please enter a valid number in the number field.");
-            numberField.value = '';
-        } else {
-            const congratulation = document.getElementById('congratulation');
-            congratulation.classList.remove('hidden');
-        }
-    }
-});
 
 
 // congratulation system
