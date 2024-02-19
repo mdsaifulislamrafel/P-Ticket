@@ -7,6 +7,7 @@ const ticketPrice = 550;
 let discount = 0;
 
 const sitButtons = document.querySelectorAll('#sit-button');
+const nextBtn = document.getElementById('next-btn');
 
 for (const button of sitButtons) {
     button.addEventListener('click', function () {
@@ -94,11 +95,7 @@ for (const button of sitButtons) {
                 codeBtn.classList.add('hidden');
             });
         }
-
-        if (sitCount >= 1 && sitCount <= 3) {
-            nextBtn.removeAttribute('disabled');
-        }
-
+        
         nextBtn.addEventListener('click', function () {
             const numberField = document.getElementById('number-field');
             if (numberField.value.trim() === '') {
