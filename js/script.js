@@ -67,10 +67,11 @@ for (const button of sitButtons) {
 
         if (sitCount === 4) {
             const couponFilter = document.getElementById('coupon-filter');
+            const couponBtn = document.getElementById('coupon-btn');
             couponFilter.classList.add('bg-green-200');
             couponFilter.classList.remove('btn-disabled');
+            couponBtn.classList.remove('btn-disabled');
 
-            const couponBtn = document.getElementById('coupon-btn');
             couponBtn.addEventListener('click', function () {
                 const couponFilterValue = document.getElementById('coupon-filter').value;
                 const code = couponFilterValue.split(' ').join('').toUpperCase();
@@ -93,8 +94,17 @@ for (const button of sitButtons) {
                 const codeBtn = document.getElementById('code-btn');
                 codeBtn.classList.add('hidden');
             });
+        } else if (sitCount >= 1 && sitCount <= 3) {
+            nextBtn.removeAttribute('disabled');
         }
 
+        nextBtn.addEventListener('click', function () {
+            const numberField = document.getElementById('number-field');
+            if (numberField.value.trim() === '') {
+                alert("Please enter a valid number in the number field.");
+                numberField.focus();
+            }
+        });
 
 
     });
@@ -104,31 +114,40 @@ for (const button of sitButtons) {
 // number verify
 
 const numberField = document.getElementById('number-field');
-numberField.addEventListener('keyup', function (e) {
+numberField.addEventListener('input', function (e) {
     const number = e.target.value;
     const nextBtn = document.getElementById('next-btn');
-    if (number !== '') {
+    if (typeof parseInt(number) === 'number' && !isNaN(parseInt(number))) {
         nextBtn.removeAttribute('disabled');
     } else {
         nextBtn.setAttribute('disabled', true);
         numberField.value = '';
     }
+       
 });
 
-
+// next btn 
 
 const nextBtn = document.getElementById('next-btn');
 nextBtn.addEventListener('click', function () {
-
-    const congratulation = document.getElementById('congratulation');
-    congratulation.classList.remove('hidden');
-
+    const numberField = document.getElementById('number-field');
+    if (numberField.value.trim() === '') {
+        numberField.focus();
+        alert("Please enter a valid number in the number field.");
+    } else {
+        const congratulation = document.getElementById('congratulation');
+        congratulation.classList.remove('hidden');
+    }
 });
 
+
+// congratulation system
 
 function Continue() {
     const congratulation = document.getElementById('congratulation');
     congratulation.classList.add('hidden');
+
+
     const numberField = document.getElementById('number-field')
     numberField.value = '';
-}
+}  
