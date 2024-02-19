@@ -144,10 +144,6 @@ nextBtn.addEventListener('click', function () {
 });
 
 
-
-
-
-
 // congratulation system
 function Continue() {
     const congratulation = document.getElementById('congratulation');
