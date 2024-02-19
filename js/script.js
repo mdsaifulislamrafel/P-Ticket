@@ -140,7 +140,6 @@ numberField.addEventListener('input', function (e) {
 });
 
 
-
 // congratulation system
 function Continue() {
     const congratulation = document.getElementById('congratulation');
