@@ -36,7 +36,6 @@ for (const button of sitButtons) {
         const btn = button.innerText;
 
         // new div created and parent div push
-
         const newDiv = document.createElement('div');
         newDiv.setAttribute('class', 'flex justify-between');
 
@@ -98,9 +97,6 @@ for (const button of sitButtons) {
             nextBtn.removeAttribute('disabled');
         }
 
-
-
-
         nextBtn.addEventListener('click', function () {
             const numberField = document.getElementById('number-field');
             if (numberField.value.trim() === '') {
@@ -115,7 +111,6 @@ for (const button of sitButtons) {
 
 
 // number verify
-
 const numberField = document.getElementById('number-field');
 numberField.addEventListener('input', function (e) {
     const number = e.target.value;
@@ -130,19 +125,6 @@ numberField.addEventListener('input', function (e) {
 });
 
 // next btn 
-
-// const nextBtn = document.getElementById('next-btn');
-// nextBtn.addEventListener('click', function () {
-//     const numberField = document.getElementById('number-field');
-//     if (numberField.value.trim() === '') {
-//         numberField.focus();
-//         alert("Please enter a valid number in the number field.");
-//     } else {
-//         const congratulation = document.getElementById('congratulation');
-//         congratulation.classList.remove('hidden');
-//     }
-// });
-
 const nextBtn = document.getElementById('next-btn');
 nextBtn.addEventListener('click', function () {
     const sitBooking = parseInt(document.getElementById('sit-booking').innerText);
@@ -167,7 +149,6 @@ nextBtn.addEventListener('click', function () {
 
 
 // congratulation system
-
 function Continue() {
     const congratulation = document.getElementById('congratulation');
     congratulation.classList.add('hidden');
